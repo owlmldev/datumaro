@@ -18,7 +18,7 @@ class FractalImageGeneratorTest(TestCase):
     def test_save_image_can_create_dir(self):
         with TestDir() as test_dir:
             dataset_size = 2
-            FractalImageGenerator(test_dir, dataset_size, shape=[22, 25]).generate_dataset()
+            FractalImageGenerator(test_dir, dataset_size, shape=[22, 25], model_dir=test_dir).generate_dataset()
             image_files = os.listdir(test_dir)
             self.assertEqual(len(image_files), dataset_size)
 
@@ -35,7 +35,7 @@ class FractalImageGeneratorTest(TestCase):
         ref_dir = get_test_asset_path("synthetic_dataset", "images")
         with TestDir() as test_dir:
             dataset_size = 3
-            FractalImageGenerator(test_dir, dataset_size, shape=[24, 36]).generate_dataset()
+            FractalImageGenerator(test_dir, dataset_size, shape=[24, 36], model_dir=test_dir).generate_dataset()
             image_files = os.listdir(test_dir)
             self.assertEqual(len(image_files), dataset_size)
 
