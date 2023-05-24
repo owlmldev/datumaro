@@ -6,7 +6,7 @@ branchify:
 	sed -i "s/^__version__\s*=\s*\"[0-9]*\.[0-9]*\.[0-9]*/&.dev$(shell date +%s)/g" datumaro/version.py
 
 .PHONY: publish
-publish: branchify
+publish:
 	pip install twine build
 	rm -rf dist
 	python -m build
