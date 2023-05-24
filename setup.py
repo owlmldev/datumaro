@@ -47,10 +47,7 @@ def parse_requirements(filename=CORE_REQUIREMENTS_FILE):
 
 
 CORE_REQUIREMENTS = parse_requirements(CORE_REQUIREMENTS_FILE)
-if strtobool(os.getenv("DATUMARO_HEADLESS", "0").lower()):
-    CORE_REQUIREMENTS.append("opencv-python-headless")
-else:
-    CORE_REQUIREMENTS.append("opencv-python")
+CORE_REQUIREMENTS.append("opencv-python-headless")
 
 DEFAULT_REQUIREMENTS = parse_requirements(DEFAULT_REQUIREMENTS_FILE)
 
@@ -67,7 +64,7 @@ ext_modules = [
 ]
 
 setuptools.setup(
-    name="datumaro",
+    name="datumaro-headless",
     version=find_version(here),
     author="Intel",
     author_email="emily.chun@intel.com",
